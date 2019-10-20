@@ -19,7 +19,7 @@ from mpl_toolkits import mplot3d
 from sklearn.linear_model import LinearRegression
 
 
-suicide_data = pd.read_csv("C:/Users/Clayt/repos/TAMUDatathon/Suicide/who_suicide_statistics.csv", sep=",")
+suicide_data = pd.read_csv("C:/Users/Clayt/repos/TAMUDatathon/SuicideData/who_suicide_statistics.csv", sep=",")
 
 
 suicide_data.head()
@@ -40,7 +40,8 @@ suicide_model = LinearRegression().fit(x, y)
 y_hat = suicide_model.predict(x)
 
 plt.scatter(x, y, label='Suicide Data')
-plt.plot(x, y_hat, 'r', label='Model: y={:.2f}*x+{:.0f}'.format(suicide_model.coef_[0], suicide_model.intercept_))
+#plt.plot(x, suicide_model, color="r", label='Model: $\hat{{y}}$={:.2f}*x+{:.0f}'.format(suicide_model.coef_, suicide_model.intercept_))
+print(suicide_model.coef_)
 # Set location of the legend of the plot.
 plt.legend(loc='upper left')
 plt.title("Computer Fit Model ($R^2$: {:.2f})".format(r2_score(y, y_hat)))
